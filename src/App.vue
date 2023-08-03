@@ -1,47 +1,16 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import axios from 'axios';
-</script>
-
 <template>
-  <div class="categoryStyle">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
+  <div id="nav">
+   <router-link to="/">Inicio</router-link>
   </div>
-  <HelloWorld msg="Vite + Vue" />
-  <p>Sol López</p>
-
-<hr/>
-
-<div v-for="category in categories" :key="category.idCategory">
-  <img v-bind:src="category.strCategoryThumb" alt="">
-  <h6>{{ category.strCategory }}</h6>
-  <p>{{ category.strCategoryDescription }}</p>
-
-</div>
+  <router-view></router-view>
 
 </template>
 
 <script>
 export default {
-  name: 'App',
-data(){
-  return {
-    categories: []
-  }
-},
-
-mounted(){
-  axios.get('https://themealdb.com/api/json/v1/1/categories.php')
-  .then((response) =>{
-console.log(response.data.categories);
-//idCategory,strCategory,strCategoryDescription, strCategoryThumb
-this.categories = response.data.categories
-  })
-  .catch((error)=>{console.log(error);})
+  name: 'App'
 }
-}</script>
+</script>
 
 <style scoped>
 .logo {
@@ -50,14 +19,27 @@ this.categories = response.data.categories
   will-change: filter;
   transition: filter 300ms;
 }
+
 .logo:hover {
   filter: drop-shadow(0 0 2em #646cffaa);
 }
+
 .logo.vue:hover {
   filter: drop-shadow(0 0 2em #42b883aa);
 }
-.categoryStyle{
-  border: 1px solid red;
+
+.category_container {
+  border: 1px solid rgb(58, 45, 116);
   padding: 50px;
+}
+.searchInput{
+  border: none;
+  border-bottom: 1px solid rgb(58, 45, 116);
+  min-height: 20px;
+margin-top: 20px;
+margin-bottom: 20px;
+}
+*{
+  font-family: Georgia, 'Times New Roman', Times, serif;
 }
 </style>
