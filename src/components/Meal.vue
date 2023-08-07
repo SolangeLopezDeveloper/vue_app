@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-6" >
                 <div class="card mb-3">
-                    <img @click="openMealDetails" v-bind:src="meal.strMealThumb" v-bind:alt="meal.strMeal" width="300">
+                    <img @click="openMealDetails" v-bind:src="meal.strMealThumb" v-bind:alt="meal.strMeal" width="200">
                     <p><b>{{ meal.strMeal }}</b></p>
                 </div>
             </div>
